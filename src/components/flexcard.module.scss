@@ -1,0 +1,426 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+// // // Globa styles for the Item card since they will share the same styles
+.item {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+      141,
+      161,
+      172,
+      0.2
+    ); /* Use RGBA value for background color */
+    z-index: 1;
+    opacity: 20;
+  }
+
+  &:hover {
+    transform: translate3D(0, -1px, 0) scale(1.01); /* move up slightly and zoom in */
+    box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+      1px 6px 12px rgba(39, 44, 49, 0.04);
+    transition: all 0.4s ease; /* zoom in */
+    cursor: pointer;
+  }
+}
+
+// // MINI CARD MODULE:
+.miniCardModule {
+  justify-content: space-around; // or try space-around
+
+  .containerImage {
+    height: 4rem;
+    width: 4rem;
+    display: block;
+  }
+
+  .containerImage .cardImage {
+    margin-left: 2.7rem;
+    margin-top: 1.7rem;
+  }
+
+  .item {
+    flex-basis: calc(26% - 32px);
+    margin: 0 0.019rem 1.25rem 0.188rem;
+    background-color: #f2f2f2;
+  }
+  .containerText {
+    padding: 2.5rem;
+    margin-top: 1.7rem;
+
+    h4 {
+      // font-family: 'Acumin Pro SemiCondensed', sans-serif;
+      font-weight: lighter;
+      font-size: 2.8rem;
+      color: #4d4d4d;
+      width: 24rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .miniCardModule .item {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .miniCardModule .item {
+    flex-grow: 1;
+    flex-basis: 100%;
+  }
+}
+
+.iconAboveTitle {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+// stack up on each other for iphone
+@media (max-width: 390px) {
+  .miniCardModule .item {
+    flex-basis: calc(
+      100% - 20px
+    ); /* Adjust the flex-basis value for iPhone screen size */
+  }
+}
+
+@media (max-width: 680px) {
+  .miniCardModule .item {
+    flex-basis: calc(
+      50% - 20px
+    ); /* Adjust the flex-basis value for smaller screens */
+    padding: 10px;
+    margin: 0 3px 20px 3px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .miniCardModule .item {
+    flex-basis: calc(
+      50% - 20px
+    ); /* Adjust the flex-basis value for smaller screens */
+    padding: 10px;
+    margin: 0 3px 20px 3px;
+  }
+  .item h4 {
+    width: auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .miniCardModule .item {
+    flex-basis: calc(
+      50% - 20px
+    ); /* Adjust the flex-basis value for smaller screens */
+    padding: 10px;
+    margin: 0 3px 20px 3px;
+  }
+  .item h4 {
+    width: auto;
+  }
+}
+// -----------------------------------------
+// -----------------------------------------
+// CARD MODULE SMALL
+//  displays 3 card module small
+.cardModuleSmall {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  justify-content: space-around; // or try space-around
+
+  .topHeader {
+    background-color: #8da1ac;
+    width: calc(100% + 3rem); /* Add the padding value of the .item */
+    margin-left: -1.5rem; /* Equal to the padding-left of the .item */
+    margin-right: -1.5rem; /* Equal to the padding-right of the .item */
+    margin-top: -1.5rem;
+    min-height: 20px; /* Set a minimum height for the top header */
+  }
+
+  .item {
+    flex-basis: calc(33.333% - 1rem);
+    height: 300px;
+    padding: 1.5rem;
+    min-height: 300px;
+  }
+
+  h4 {
+    margin-top: 4rem;
+    font-family: Acumin Pro SemiCondensed, sans-serif;
+    font-size: 2.8rem;
+    color: #4d4d4d;
+  }
+  p {
+    font-family: Acumin Pro SemiCondensed, sans-serif;
+    font-size: 1.8rem;
+    color: #4d4d4d;
+  }
+
+  .containerText {
+    width: 100%;
+  }
+
+  .containerText {
+    h4,
+    p {
+      margin-top: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 1136px) {
+  .cardModuleSmall {
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 0;
+  }
+}
+
+@media (max-width: 690px) {
+  .cardModuleSmall {
+    flex-wrap: wrap;
+    gap: 1.7rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .cardModuleSmall .item {
+    flex-basis: 80%; //this makes them into squares on mobile
+  }
+}
+
+// hm card module
+.cardModuleMedium {
+  padding: 1rem 10rem 1rem 10rem;
+  gap: 1.2rem;
+  .item {
+    display: flex;
+    flex-basis: 49%;
+    padding: 0;
+    height: 300px;
+    flex-direction: row-reverse;
+  }
+
+  .containerText {
+    padding: 1.5rem;
+    width: 70%;
+    h4 {
+      font-family: 'Eyebrow: Acumin Pro';
+      font-weight: bold;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: #4d4d4d;
+      margin-top: 3rem;
+    }
+    h4,
+    p {
+      padding: 0 1.7rem 0 1.7rem;
+    }
+
+    p {
+      font-family: 'Eyebrow: Acumin Pro';
+      font-weight: normal;
+      font-size: 1.8rem;
+      line-height: 1.5;
+      color: #4d4d4d;
+    }
+  }
+
+  .containerImage {
+    width: 30%;
+  }
+
+  .cardImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .withoutImage {
+    width: 100%;
+  }
+}
+
+@media (max-width: 990px) {
+  .cardModuleMedium .item {
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+}
+
+// todo: check if these are needed:
+@media (max-width: 768px) {
+  .cardModuleMedium .item {
+    flex-direction: column-reverse;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .cardModuleMedium .containerText {
+    width: 100%; /* make the containerText take the full width */
+  }
+
+  .cardModuleMedium .containerImage {
+    width: 100%; /* make the containerImage take the full width */
+  }
+}
+
+// // large card module
+.largeCardModule {
+  padding: 1rem 2rem 1rem 2rem;
+  gap: 1rem;
+
+  .containerText.withoutImage {
+    width: 70%;
+  }
+
+  .image-container.no-image {
+    width: 0;
+  }
+
+  p {
+    font-family: 'Eyebrow: Acumin Pro';
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: #4d4d4d;
+  }
+
+  .containerText {
+    padding: 3.7rem;
+
+    h4 {
+      font-family: 'Eyebrow: Acumin Pro';
+      font-weight: bold;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: #4d4d4d;
+      margin-top: 3rem;
+    }
+  }
+
+  .containerText.withImage {
+    width: 80%;
+  }
+
+  .containerText.withoutImage {
+    width: 100%;
+  }
+
+  .item {
+    display: flex;
+    flex-basis: 49%;
+    padding: 0;
+    min-height: 300px; /* change fixed height to min-height */
+
+    .buttonLink {
+      margin-top: 50px;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .item:nth-child(3) {
+    flex: 1;
+    flex-direction: row-reverse;
+  }
+
+  .cardImage {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 948px) {
+  .largeCardModule .buttonLink {
+    margin-top: 30px;
+  }
+  .largeCardModule .item {
+    flex-direction: column;
+  }
+
+  .largeCardModule .item:nth-child(3) {
+    display: block;
+  }
+
+  .largeCardModule .image-container {
+    width: 100%; /* makes the image-container take the full width */
+  }
+
+  .largeCardModule .containerText.withImage {
+    width: 100%; /* makes the containerText take the full width */
+  }
+}
+
+@media (max-width: 835px) {
+  .largeCardModule .item {
+    flex-basis: 100%;
+
+    .buttonLink {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    p {
+      font-family: 'Eyebrow: Acumin Pro';
+      font-weight: normal;
+      font-size: 1.3rem;
+      color: #4d4d4d;
+    }
+  }
+}
+
+// testing out medium car dmodule with no images
+
+.cardModuleMediumNoImages {
+  // gap: 1.2rem;
+
+  // .item {
+  //   display: flex;
+  //   flex-basis: 49%;
+  //   padding: 0;
+  //   height: 300px;
+  //   border: 1px solid red;
+  // }
+
+  // h4 {
+  //   font-family: 'Eyebrow: Acumin Pro';
+  //   font-weight: bold;
+  //   font-size: 1.8rem;
+  //   text-transform: uppercase;
+  //   color: #4d4d4d;
+  //   margin-top: 3rem;
+  // }
+
+  // h4,
+  // p {
+  //   padding: 0 1.7rem 0 1.7rem;
+  // }
+
+  // p {
+  //   font-family: 'Eyebrow: Acumin Pro';
+
+  //   font-weight: normal;
+  //   font-size: 1.8rem;
+  //   line-height: 1.5;
+  //   color: #4d4d4d;
+  // }
+}
